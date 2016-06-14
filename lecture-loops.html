@@ -22,12 +22,12 @@
       <div class="navigation-link-item"><a href="activity-logging.html">Activity: Logging</a></div>
       <div class="navigation-link-item"><a href="lecture-variables.html">Lecture: Variables</a></div>
       <div class="navigation-link-item"><a href="activity-variables.html">Activity: Variables</a></div>
-      <div class="navigation-link-item"><a href="lecture-arrays.html">Lecture: Arrays</a></div>
-      <div class="navigation-link-item"><a href="activity-arrays.html">Activity: Arrays</a></div>
       <div class="navigation-link-item"><a href="lecture-conditionals.html">Lecture: Conditionals</a></div>
       <div class="navigation-link-item"><a href="activity-conditionals.html">Activity: Conditionals</a></div>
       <div class="navigation-link-item"><a href="assignment-webproposal.html">Assignment: Web App Proposal</a></div>
       <div class="navigation-link-item"><a href="lecture-loops.html">Lecture: Loops</a></div>
+      <div class="navigation-link-item"><a href="lecture-arrays.html">Lecture: Arrays</a></div>
+      <div class="navigation-link-item"><a href="activity-arrays.html">Activity: Arrays</a></div>
       <div class="navigation-link-item"><a href="activity-arraysadvanced.html">Activity: Arrays (Advanced)</a></div>
       <div class="navigation-link-item"><a href="lecture-functions.html">Lecture: Functions</a></div>
       <div class="navigation-link-item"><a href="activity-functions.html">Activity: Functions</a></div>
@@ -40,7 +40,7 @@
     <h1>Lecture: Loops</h1>
     
     <p>
-      Imagine if we wanted to print out ALL the elements of an array. Or the even numbers between 0 and 100. Or even just repeat the same thing - like "text my mom something nice" or "text my ex something mean" - 100 times?
+      Imagine if we wanted to write to the console all the even numbers between 0 and 100. Or even just repeat the same thing - like "text my mom something nice" or "text my ex something mean" - 100 times?
     </p>
 
     <pre><code>console.log(1)
@@ -67,9 +67,20 @@ console.log(15)</code></pre>
       Computers are not very smart, but they are <i>very</i> good at doing repetetive tasks. How? They use <b>loops</b>!
     </p>
 
-<pre><code>for (var i = 0; i < 100; i++) {
-  console.log(i)
-}</code></pre>
+    <p>
+      Loops use several things that we have already talked about (variables, arithmetic and conditionals) plus some new syntax to instruct the computer do repetive tasks. Many algorithms depend on this type of behavior.
+    </p>
+
+    <p>
+<pre><code>var i = 0;
+while ( i < 100 ) {
+  console.log(i);
+  i = i + 1;
+}
+</code></pre>
+
+Read this as "Set <code>i</code> to 0. While <code>i</code> is less than 100, print <code>i</code> to the console and increase <code>i</code> by one."
+    </p>
     
     <p>
       So what's going on here? Let's break it down:
@@ -80,13 +91,16 @@ console.log(15)</code></pre>
       <ol>
         <li>Initialization: <code>var i = 0</code></li>
         <li>Condition: <code>i < 100</code></li>
-        <li>Increment: <code>i++</code></li>
-        <li>Body: <code>console.log(i)</code></li>
+        <li>Body: <code>console.log(i); i = i + 1;</code></li>
+        <li>This last line has a special purpose so we give it a special name: the Increment.</li>
       </ol>
     </p>
 
     <p>
       These are all just examples, you can put anything you want in any of the four sections (including nothing at all!), but the vast majority of the time all four sections have something in them.
+    </p>
+    <p>
+      Sometimes you might create a loop that never completes. This happens when the condition is never met. We call this an "infinite loop." (Now do you get the joke of <a href="https://www.google.com/maps/place/Apple+Store,+Infinite+Loop/@37.3314187,-122.0304089,15z/data=!4m5!3m4!1s0x0:0xb651414deb31e9fb!8m2!3d37.3314187!4d-122.0304089">the address of Apple's Headquarters?</a>) There are some occasions where you might want this, but for now it is a <em>bad thing</em>. For example, if you forget to include an Increment, your looping variable will never increase, your stopping condition will never be met, and your page will hang. Don't do this!
     </p>
 
     <h2>Initialization</h2>
@@ -94,15 +108,24 @@ console.log(15)</code></pre>
       The <b>initialization</b> is where you set up the variables that you need for your loop. The most common is <code>var i = 0;</code> but you can start at anything, for example: <code>1</code> or <code>1000000</code>, depending on what your program is doing.
     </p>
     <p>
-      <b>Challenge Question:</b> What would the initialization be if we wanted to start our index at the END of an array and work backwards?
+      For example, the following loop will print each year since the invention of the World Wide Web.
+<pre><code>var i = 1989;
+while ( i < 2017 ) {
+  console.log(i);
+  i = i + 1;
+}
+</code></pre>
     </p>
-
+    <p>
+      <b>Challenge Question:</b> Try changing the variable initialization so that the code prints each year since you were born.
+    </p>
+    
     <h2>Condition</h2>
     <p>
       The loop will execute the <b>body</b> repeatedly until the <b>condition</b> evaluates to <code>false</code>. Each execution of the body is called an <b>iteration</b>.
     </p>
     <p>
-      <b>Challenge Question:</b> What would the condition be if we wanted to start our index at the END of an array and work backwards? What about if we started at the BEGINNING of an array and work forwards to the end?
+      <b>Challenge Question:</b> Try changing the above example so that no matter what the initial variable value is, the code prints the next 10 years. (Hint: You can use basic variable arithmetic in the condition statement.)
     </p>
 
     <h2>Increment</h2>
@@ -110,26 +133,45 @@ console.log(15)</code></pre>
       The <b>increment</b> is where you update the variables at the end of each iteration. The most common is <code>i++</code> but you can do anything, for example: <code>i += 2</code> or <code>i *= 2</code>, depending on what your program is doing.
     </p>
     <p>
-      <b>Challenge Question:</b> What would the increment be if we wanted to start our index at the END of an array and work backwards?
+      The following loop prints all even numbers between 10 and 20.
+<pre><code>var i = 10;
+while ( i < 20 ) {
+  console.log(i);
+  i = i + 2;
+}
+</code></pre>
     </p>
-
+    <p>
+      <b>Challenge Question:</b> Try changing the above example so that it prints all the years since you've been born but in reverse order, going back in time starting with this year first. (Hint: the "increment" can actually decrease the variable value.)
+    </p>
+        
     <h2>Body</h2>
     <p>
       The <b>body</b> is the meat of your loop. The rest is just figuring out where you start, where you end, and what the step size is. The body gets executed over and over again until the condition evaluates to <code>false</code>.
     </p>
     <p>
-      <b>Challenge Question:</b> Now that we have all the pieces, write a program that iterates through an array from the back to the front and prints out only the values at the odd indices.
+      The <b>body</b> of a loop can include any valid JavaScript statements.
     </p>
-
-    <pre><code>var myArray = [7, 24, 25, 9, 40, 41, 11, 60, 61];
-// your program should output: 60,41,9,24</code></pre>
-
     <p>
-    <b>Challenge Question:</b> write a program that iterates through an array from the front to the back and prints out only the <b>odd</b> values.
+      <b>Challenge Question:</b> Try modifying the example that prints each year since you've been born, but for the first 18 years also prints "Can't vote", and for all later years prints "Can vote." (Hint: <a href="lecture-conditionals.html">Conditionals</a> are perfectly valid in the body of a loop.)
     </p>
     
-    <pre><code>var myArray = [7, 24, 25, 9, 40, 41, 11, 60, 61];
-// your program should output: 7,25,9,41,11,61</code></pre>
+    <h2>Syntactic Sugar</h2>
+    <p>
+      Similar to the way that English allows multiple ways to say the same thing, most programming languages have syntax rules that allow you to write the same instructions in different ways. One example of this is the way you can write the Initialization, Condition and Increment of a <code>while</code> loop in one compact line with a bit of equivalent syntax called a <code>for</code> loop. The following two code snippets are exactly equivalent:
+<pre><code>var i = 0;
+while ( i < 100 ) {
+    console.log(i);
+    i = i + 1;
+  }
+</code></pre>
+and
+<pre><code>for ( var i = 0; i < 100; i = i + 1 ) {
+    console.log(i);
+  }
+</code></pre>
+Most experienced programmers tend to write loops using the <code>for</code> structure, but if you find <code>while</code> loops to be more easily readable, feel free to use which ever you like!
+    </p>
 
   </div>
   
