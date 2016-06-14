@@ -22,12 +22,12 @@
       <div class="navigation-link-item"><a href="activity-logging.html">Activity: Logging</a></div>
       <div class="navigation-link-item"><a href="lecture-variables.html">Lecture: Variables</a></div>
       <div class="navigation-link-item"><a href="activity-variables.html">Activity: Variables</a></div>
-      <div class="navigation-link-item"><a href="lecture-arrays.html">Lecture: Arrays</a></div>
-      <div class="navigation-link-item"><a href="activity-arrays.html">Activity: Arrays</a></div>
       <div class="navigation-link-item"><a href="lecture-conditionals.html">Lecture: Conditionals</a></div>
       <div class="navigation-link-item"><a href="activity-conditionals.html">Activity: Conditionals</a></div>
       <div class="navigation-link-item"><a href="lecture-loops.html">Lecture: Loops</a></div>
       <div class="navigation-link-item"><a href="activity-fizzbuzz.html">Activity: Fizz Buzz</a></div>
+      <div class="navigation-link-item"><a href="lecture-arrays.html">Lecture: Arrays</a></div>
+      <div class="navigation-link-item"><a href="activity-arrays.html">Activity: Arrays</a></div>
       <div class="navigation-link-item"><a href="activity-arraysadvanced.html">Activity: Arrays (Advanced)</a></div>
       <div class="navigation-link-item"><a href="lecture-functions.html">Lecture: Functions</a></div>
       <div class="navigation-link-item"><a href="activity-functions.html">Activity: Functions</a></div>
@@ -37,10 +37,40 @@
 
   <div class="content">
     <h1>Lecture: Arrays</h1>
+
+    <h2>Background</h2>
+
+    <p>
+      Consider the following program that gives a play-by-play for an imaginary horse race:
+      <pre><code>console.clear();
+
+var horse1 = 0;
+var horse2 = 0;
+var horse3 = 0;
+
+while ( horse1 < 2000 && horse2 < 2000 && horse3 < 2000 ) {
+  console.log("Horse One is at " + horse1 + " meters.");
+  console.log("Horse Two is at " + horse2 + " meters.");
+  console.log("Horse Three is at " + horse3 + " meters.");
+
+  horse1 = horse1 + Math.round(Math.random()*200);
+  horse2 = horse2 + Math.round(Math.random()*200);
+  horse3 = horse3 + Math.round(Math.random()*200);
+}
+console.log("We have a winner!");
+</code></pre>
+
+      We have three variables, one representing each horse. The <code>random()</code> lines increment each horse variable by some random distance between 0 and 200. (Don't worry about the details of this for now.) And the three <code>log()</code> commands each display the horses' progress. The <code>while</code> loop repeats until one horse gets to 2000 meters. Try copy/pasting that into CodePen and run to see the result.
+    </p>
+
+    <p>
+      How would you expand this example if you wanted 5 horses? What if you wanted 10? Changing your code to implement each of these changes would be a pain. And what if you wanted a <em>dynamic</em> number of horses that was different each time your code ran? Using variables like we have been, there is no way to do this. To have a dynamic number of horses, you would need a way to have a dynamic number of variables. And for this, you need arrays.
+    </p>
+      
     
     <h2>What is an array?</h2>
     <p>
-      An array in JavaScript is a <b>data structure</b> that contains an <b>ordered collection</b> of <b>elements</b>. Each element is numbered starting at <code>0</code>, this is called the <b>index</b>.
+      An array is a single variable that can contain a list of values. In JavaScript, an array is a <b>data structure</b> that contains an <b>ordered collection</b> of <b>elements</b>. Each element is numbered starting at <code>0</code>, this is called the <b>index</b>.
     </p>
     
     <img src="http://www.introprogramming.info/wp-content/uploads/2013/07/clip_image00213_thumb.png">
@@ -137,7 +167,38 @@ console.log( fruits ); // what do you expect to see in this array now?
       You can find a great tutorial (including some advanced topics about Objects that we won't cover in this workshop) <a href="http://www.w3schools.com/js/js_arrays.asp">here at w3schools</a>. The <a href="http://www.w3schools.com/jsref/jsref_obj_array.asp">array reference documentation at w3schools</a> is extremely helpful as well. Go there to look up the different methods and properties on arrays. Note the only useful property is <code>length</code>, but it's a very important one!
     </p>
 
-   
+    <h3>Example</h3>
+    
+    <p>
+      Returning again to the example that we started with, the following code uses an array called <code>horses</code> to generate a dynamic number of horses each time you run, and uses a <code>while</codE> loop to iterate over those horses to increment and print the position of each.
+
+<pre><code>var horses = [];
+
+var numberOfHorses = Math.floor( Math.random()*10 );
+var i = 0;
+while ( i < numberOfHorses ) {
+  horses[i] = 0;
+  i = i + 1;
+}
+
+var winner = false;
+while ( !winner ) {
+  
+  i = 0;
+  while ( i < horses.length ) {
+    console.log("Horse " + i + " is at " + horses[i] + " meters.");
+    
+    horses[i] = horses[i] + Math.random()*200;
+    if ( horses[i] > 2000 ) {
+      winner = true;
+    }
+    i = i + 1;
+  }
+}
+console.log("We have a winner!");
+</code></pre>
+    </p>
+    
   </div>
 
 </div>
