@@ -40,6 +40,13 @@
     <h1>Lecture: Variables</h1>
     
     <h2>What is a Variable?</h2>
+
+    <p>
+      A variable is a placeholder. In a computer program, instead of
+      working with a fixed value, you can create a variable and use
+      that instead. This allows you to create code that is dynamic,
+      flexible, or that can respond to input from users or elsewhere.
+    </p>
     
     <p>
       A good analogy is a <b>labeled box</b>. Outside is the label, inside is something, and it could be anything!
@@ -74,6 +81,25 @@ console.log("Student's favorite language was " + studentsFavLanguage)
     <p>
       Notice how in the code snippet above our second <code>console.log</code> statement is identical to the first <code>console.log</code> statement but the output is drastically different since the value of the var <code>studentsFavLanguage</code> has changed. In general, after having declared a new variable, it can be used and reused as many times as you want.
     </p>
+
+    <p>
+      Building on the two identicial <code>console.log</code>
+      statements in the above example, we can use the same program
+      code can to do different things when the value of a variable is
+      changed as the result of user input. In this case, we use
+      variables as placeholders when <em>writing</em> our code, but we
+      don't know exactly what it will do until we run our program and
+      a user inputs values that get assigned to our variables.
+    </p>
+
+    <p>
+      In JavaScript, the easiest way to allow a user to enter a value
+      is with the <codE>prompt()</code> command:
+    </p>
+
+    <pre><code>var food = prompt("What is your favorite food?")
+console.log(food + " is delicious!")
+</code></pre>
    
     <p>
       As usual, the <a href="http://www.w3schools.com/js/js_variables.asp">w3schools page on variables</a> is a fantastic resource worth reading and visiting often.
