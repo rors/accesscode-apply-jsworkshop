@@ -40,9 +40,14 @@
     <h1>Lecture: Loops</h1>
     
     <p>
-      Imagine if we wanted to write to the console all the even numbers between 0 and 100. Or even just repeat the same thing - like "text my mom something nice" or "text my ex something mean" - 100 times?
+      Imagine if we wanted to write to the console all the even
+      numbers between 0 and 100. Or even just repeat the same thing --
+      like "text my mom something nice" or "text my ex something mean"
+      -- many times?
     </p>
 
+    <p>
+      We could simply copy/paste many <code>console.log</code> commands:
     <pre><code>console.log(1)
 console.log(2)
 console.log(3)
@@ -57,25 +62,39 @@ console.log(11)
 console.log(12)
 console.log(13)
 console.log(14)
-console.log(15)</code></pre>
-
-    <p>
-      That looks pretty tedious! What if we wanted to up to 100, or 1,000, or 1,000,000?!
+console.log(15)
+// etc ...</code></pre>
     </p>
 
     <p>
-      Computers are not very smart, but they are <i>very</i> good at doing repetetive tasks. How? They use <b>loops</b>!
+      But that looks pretty tedious! What if we wanted to do this 100,
+      or 1,000, or 1,000,000 times?! That would be a lot of copy/pasting.
     </p>
 
     <p>
-      Loops use several things that we have already talked about (variables, arithmetic and conditionals) plus some new syntax to instruct the computer do repetive tasks. Many algorithms depend on this type of behavior.
+      What if we wanted to prompt the user to input a number, and
+      print something that many times? There is no way we could do
+      this simply by copy/pasting!
     </p>
 
     <p>
-<pre><code>var i = 0;
+      Computers are not very smart, but they are <i>very</i> good at
+      doing repetetive tasks. How? They use <b>loops</b>! Many
+      algorithms depend on this type of behavior.
+    </p>
+
+    <p>
+      Loops use several things that we have already talked about
+      (variables, arithmetic and conditionals) and put them together
+      with a new <code>while</code> keyword to instruct the computer
+      how to do repetive tasks.
+    </p>
+
+    <p>
+<pre><code>var i = 0
 while ( i < 100 ) {
-  console.log(i);
-  i = i + 1;
+  console.log(i)
+  i = i + 1
 }
 </code></pre>
 
@@ -91,16 +110,33 @@ Read this as "Set <code>i</code> to 0. While <code>i</code> is less than 100, pr
       <ol>
         <li>Initialization: <code>var i = 0</code></li>
         <li>Condition: <code>i < 100</code></li>
-        <li>Body: <code>console.log(i); i = i + 1;</code></li>
+        <li>Body:
+<pre style="margin: 7px 10px;"><code>console.log(i)
+i = i + 1</code></pre></li>
         <li>This last line has a special purpose so we give it a special name: the Increment.</li>
       </ol>
     </p>
 
     <p>
-      These are all just examples, you can put anything you want in any of the four sections (including nothing at all!), but the vast majority of the time all four sections have something in them.
+      In each of these four sections, you can put in any values that
+      you need to achieve the kind of repetition that you are trying
+      to implement. (Or you can put in nothing at all! but the vast
+      majority of the time all four sections have something in them.)
     </p>
+
     <p>
-      Sometimes you might create a loop that never completes. This happens when the condition is never met. We call this an "infinite loop." (Now do you get the joke of <a href="https://www.google.com/maps/place/Apple+Store,+Infinite+Loop/@37.3314187,-122.0304089,15z/data=!4m5!3m4!1s0x0:0xb651414deb31e9fb!8m2!3d37.3314187!4d-122.0304089">the address of Apple's Headquarters?</a>) There are some occasions where you might want this, but for now it is a <em>bad thing</em>. For example, if you forget to include an Increment, your looping variable will never increase, your stopping condition will never be met, and your page will hang. Don't do this!
+      Sometimes you might create a loop that never completes. This
+      happens when the condition is never met. We call this an
+      "infinite loop." (Now do you get the joke
+      of <a href="https://www.google.com/maps/place/Apple+Store,+Infinite+Loop/@37.3314187,-122.0304089,15z/data=!4m5!3m4!1s0x0:0xb651414deb31e9fb!8m2!3d37.3314187!4d-122.0304089">the
+      address of Apple's Headquarters</a> in Cupertino, CA?) There are
+      some occasions where you might want this, but for now it is
+      a <em>bad thing</em>. For example, if you forget to include an
+      Increment, your looping variable will never increase, your
+      stopping condition will never be met, and your page will
+      hang. Let's try this once to see what happens and how to get out
+      of it. [WARNING: save your work first!] Now in general: be
+      careful not to do this!
     </p>
 
     <h2>Initialization</h2>
@@ -122,15 +158,19 @@ while ( i < 2017 ) {
     
     <h2>Condition</h2>
     <p>
-      The loop will execute the <b>body</b> repeatedly until the <b>condition</b> evaluates to <code>false</code>. Each execution of the body is called an <b>iteration</b>.
+      A loop will execute the statements in the <b>body</b> repeatedly until the <b>condition</b> evaluates to <code>false</code>. Each execution of the body is called an <b>iteration</b>.
     </p>
     <p>
-      <b>Challenge Question:</b> Try changing the above example so that no matter what the initial variable value is, the code prints the next 10 years. (Hint: You can use basic variable arithmetic in the condition statement.)
+      <b>Challenge Question:</b> Try changing the above example so that no matter what the initial variable value is, the code prints the next 10 years. <br/>
+      <em>Hint 1: You can use basic variable arithmetic in the condition statement.</em> <br/>
+      <em>Hint 2: Be careful to avoid an <b>infinite loop</b> here!
+      You might need to introduce a 2nd variable to make this
+      work.</em>
     </p>
 
     <h2>Increment</h2>
     <p>
-      The <b>increment</b> is where you update the variables at the end of each iteration. The most common is <code>i++</code> but you can do anything, for example: <code>i += 2</code> or <code>i *= 2</code>, depending on what your program is doing.
+      The <b>increment</b> is where you update the variables at the end of each iteration. The most common is <code>i = i + 1</codE> (or <code>i++</code>) but you can do anything, for example: <code>i += 2</code> or <code>i *= 2</code>, depending on what your program is doing.
     </p>
     <p>
       The following loop prints all even numbers between 10 and 20.
@@ -142,7 +182,12 @@ while ( i < 20 ) {
 </code></pre>
     </p>
     <p>
-      <b>Challenge Question:</b> Try changing the above example so that it prints all the years since you've been born but in reverse order, going back in time starting with this year first. (Hint: the "increment" can actually decrease the variable value.)
+      <b>Challenge Question:</b> Try changing the above example so
+      that it prints all the years since you've been born but in
+      reverse order, starting with this year first and going back in
+      time. <br/>
+      <em>Hint: the "increment" can actually decrease the
+      variable value.</em>
     </p>
         
     <h2>Body</h2>
@@ -150,10 +195,15 @@ while ( i < 20 ) {
       The <b>body</b> is the meat of your loop. The rest is just figuring out where you start, where you end, and what the step size is. The body gets executed over and over again until the condition evaluates to <code>false</code>.
     </p>
     <p>
-      The <b>body</b> of a loop can include any valid JavaScript statements.
+      The <b>body</b> of a loop can include <em>any</em> valid JavaScript statements.
     </p>
     <p>
-      <b>Challenge Question:</b> Try modifying the example that prints each year since you've been born, but for the first 18 years also prints "Can't vote", and for all later years prints "Can vote." (Hint: <a href="lecture-conditionals.html">Conditionals</a> are perfectly valid in the body of a loop.)
+      <b>Challenge Question:</b> Try modifying the example that prints
+      each year since you've been born, but also prints "Can't vote"
+      or "Can vote!" depending on whether you were at least 18 that
+      year. <br/>
+      <em>Hint: <a href="lecture-conditionals.html">Conditionals</a>
+      are perfectly valid in the body of a loop.</em>
     </p>
     
     <h2>Syntactic Sugar</h2>

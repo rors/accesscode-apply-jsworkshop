@@ -43,9 +43,11 @@
 
     <p>
       A variable is a placeholder. In a computer program, instead of
-      working with a fixed value, you can create a variable and use
-      that instead. This allows you to create code that is dynamic,
-      flexible, or that can respond to input from users or elsewhere.
+      working only with fixed hard-coded values, you can create a
+      variable and use that instead. As the name implies, the value of
+      a variable can change (it can "vary"). This allows you to create
+      code that is dynamic, flexible, or that can respond to input
+      from users or elsewhere.
     </p>
     
     <p>
@@ -56,7 +58,7 @@
     
     <p>
       Officially:
-      A variable is a <b>container</b>. It has both a <b>name</b> and a <b>value</b>. You <b>declare</b> a new variable with the <code>var</code> keyword, and <b>assign</b> it (aka give it) a value with the <code>=</code> sign.
+      A variable is a <b>container</b>. It has both a <b>name</b> and a <b>value</b>. You <b>declare</b> a new variable with the <code>var</code> keyword, and <b>assign</b> it (aka give it) a value with the equal sign (<code>=</code>), which we call "the assignment operator".
     </p>
     <pre><code>var variableOne = 1
 var variableTwo = "Two"
@@ -70,26 +72,27 @@ console.log("Ben's favorite language is: " + bensFavLanguage)
     
     <pre><code>var bensFavLanguage = "JavaScript"
 var studentsFavLanguage = "French"
-console.log("Student's favorite language was " + studentsFavLanguage)
+console.log("Student's favorite language is: " + studentsFavLanguage)
 // Student's favorite language was French
 
 // .... after this lecture ....
 studentsFavLanguage = bensFavLanguage
-console.log("Student's favorite language was " + studentsFavLanguage)
+console.log("Student's favorite language is: " + studentsFavLanguage)
 // Student's favorite language was JavaScript</code></pre>
 
     <p>
-      Notice how in the code snippet above our second <code>console.log</code> statement is identical to the first <code>console.log</code> statement but the output is drastically different since the value of the var <code>studentsFavLanguage</code> has changed. In general, after having declared a new variable, it can be used and reused as many times as you want.
+      Notice how in the code snippet above our second <code>console.log</code> statement is identical to the first <code>console.log</code> statement but the output is drastically different since the value of the variable <code>studentsFavLanguage</code> has changed. In general, after having declared a new variable, it can be used and reused as many times as you want.
     </p>
 
     <p>
-      Building on the two identicial <code>console.log</code>
-      statements in the above example, we can use the same program
-      code can to do different things when the value of a variable is
-      changed as the result of user input. In this case, we use
+      Similar to the two identicial <code>console.log</code>
+      statements in the above example, we can also use the same
+      program code to do different things when the value of a variable
+      is changed as the result of user input. In this case, we use
       variables as placeholders when <em>writing</em> our code, but we
-      don't know exactly what it will do until we run our program and
-      a user inputs values that get assigned to our variables.
+      don't know exactly what our code will <em>do</em> until we
+      <em>run</em> our program and a user inputs values that get
+      assigned to our variables.
     </p>
 
     <p>
@@ -113,7 +116,7 @@ console.log(food + " is delicious!")
 // and
 var distance = 100</code></pre>
     <p>
-        The short answer is this: the first, <code>var label</code> is a <b>string</b> whereas the second, <code> var distance</code> is a <b>number</b>. In JavaScript, variables may have different <b>types</b> and each type of variable is used to represent a specific group of data.
+        The short answer is this: the first, <code>var label</code> is a <b>string</b> whereas the second, <code> var distance</code> is a <b>number</b>. In JavaScript, variables may have different <b>types</b> and each type of variable is used to represent a specific kind of data.
     </p>
     <h3>Numbers</h3>
     <p>
@@ -126,7 +129,7 @@ var piAsFraction = 22 / 7 // this is computed and stored as 3.142857142857143
 </code></pre>
 
     <p>
-      We use the arithmetic (<code>+,-,*,/</code>) operators on numbers to do useful things like calculate someone's age or convert temperatures from fahrenheit to celsius. 
+      We can use the arithmetic operators (<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>) on numbers to do useful things like calculate someone's age or convert temperatures from fahrenheit to celsius. 
     </p>
 
     <p>
@@ -160,7 +163,7 @@ console.log( C )
         A <b>string</b> can be used to represent words and sentences. Anything wrapped in quotations (either double or single) will be represented as a <b>string</b> in javascript (even if the thing in quotes is a number).
     </p> 
     <p>
-        <b>Most</b> arithmetic operators (<code>-,*,/</code>) do not work with strings. The <code>+</code> operator can be used to "add" or <b>concatenate</b> strings together.
+        <b>Most</b> arithmetic operators (<code>-,*,/</code>) do not work with strings. The main exception is the <code>+</code> operator, which is used to "add" or <b>concatenate</b> strings together.
     </p>
     <p>
         Let's see this in action.
@@ -169,9 +172,10 @@ console.log( C )
 var name = "John" // double quotes, this is string
 var lastName = 'Smith' // SINGLE quotes, still string
 var fullName = name + " " + lastName // John Smith
-// notice how the '+' in this case combines three strings into one string
+// notice how two '+' operators are used to combine three strings into one string
 
 var stillAString = "2" // this is still a string since wrapped in quotes
+console.log( stillAString + 3 ) // What will this print?
 
 var invalid = "John Smith' // NOTE: the quote TYPES mismatch, not kosher
 </code></pre>

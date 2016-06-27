@@ -50,7 +50,11 @@
 }</code></pre>
 
     <p>
-      You read it like you would english: "If someConditionIsTrue, execute the code in the subsequent block. Else if it's not true execute the code in the else block."
+      You read it like you would English: "If someConditionIsTrue, execute the code in the subsequent block. Else if it's not true execute the code in the else block."
+    </p>
+
+    <p>
+      You can also read <code>else</code> like the way we use "otherwise" in English: "If someConditionIsTrue, execute the code in the subsequent block, otherwise if it's not true execute the code in the else block."
     </p>
 
     <h2>Let's try it out:</h2>
@@ -79,7 +83,9 @@ console.log("This code will ALWAYS run regardless of whether the condition is tr
 
     <pre><code>var someBoolean = true
 var aDifferentBoolean = false
-var isZeroEqualToZero = 0 == 0
+var isZeroEqualToZero = ( 0 == 0 )
+// The parentheses aren't necessary there, but
+// they help distinguish the conditional operator from the assignment operator
 var isZeroEqualToOne = 0 == 1
 var isZeroGreaterThanZero = 0 > 0
 var isZeroLessThanOne = 0 < 1
@@ -122,12 +128,12 @@ console.log(isZeroLessThanOne)</code></pre>
       Ok let's combine the boolean type with the <code>if</code> statement to see some real code!
     </p>
 
-    <pre><code>var userName = "Benno"
+    <pre><code>var food = prompt("What is your favorite food?")
 
-if (userName == "Benno") {
-  console.log("Welcome Benno!")
+if (food == "pizza") {
+  console.log("Pizza is made of cheese!")
 } else {
-  console.log("Hi Guest. Have you seen Benno?")
+  console.log(food + " is delicious!")
 }</code></pre>
 
     <p>
