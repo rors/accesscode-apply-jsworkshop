@@ -105,3 +105,6 @@ code {
 ol, ul {
   padding-left: 50px;
 }
+.hint, .hint a {
+    color: #fff;
+}
