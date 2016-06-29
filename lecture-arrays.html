@@ -43,26 +43,39 @@
     <h2>Background</h2>
 
     <p>
-      Let's start with a quick exercise. Can you write a bit of code
-      that does the following:
+      Let's start with a quick exercise. Imagine you are trying to
+      write an app that determines the average temperature over some
+      given time period. Start with the following code snippet that
+      defines three data points:
+<pre><code>var temperature1 = 78
+var temperature2 = 112
+var temperature3 = 93
+</code></pre>
+
+Write a bit of code that does the following:
       <ul>
-	<li>define three variables (let's call them <code>a1</code>, <code>a2</code> and <code>a3</code>)</li>
-	<li>assign each variable an arbitrary numeric value</li>
-	<li>create a fourth variable called <code>average</code></li>
-	<li>calculate the average the of first 3 variables and assign it to <code>average</code></li>
+	<li>create a variable called <code>average</code></li>
+
+	<li>calculate the average the of first 3 variables and assign
+	it to <code>average</code></li>
+
       </ul>
     </p>
 
     <p>
-      Now expand that so instead of calculating the average of three
-      variable values, add two more variables and calculate the
-      average of all five.
+      Imagine you were given two new data points and want to
+      include those in the average. Add two more variables (assign
+      them arbitrary values) and calculate the average of all five.
     </p>
 
     <p>
-      Now, what if you wanted to calculate the average of 100 values,
-      or 1000? Changing your code to implement each of these changes
-      would be a big hassle.
+      But now, what if you wanted to calculate the average of 100
+      values, or 1000? Modifying your code to implement each of these
+      changes would be a big hassle and involve a lot of copying &amp;
+      pasting. It feels like there should be some way, perhaps with a
+      loop, that we could automate the repetition of this calculation,
+      so that it could work for potentially many values. But using
+      what we've learned so far, this is not possible.
     </p>
 
     <p>
@@ -76,13 +89,13 @@
       Thinking about how to implement the above situations, it's
       almost like you need a loop. Remember, loops are used for
       repetition: to create code that does something many many times,
-      or to create code that does something a some number of times
-      that isn't specified until you get input from the user or
+      or to create code that does something some number of times that
+      isn't specified until you get input from the user or
       elsewhere. We've written loops to print things to the
       console. But how could you write a loop to add up a bunch of
       variables
-      like <code>a1</code>, <code>a2</code>, <code>a3</code>, etc
-      above? For this, you need an array.
+      like <code>temperature1</code>, <code>temperature2</code>, <code>temperature3</code>,
+      etc above? For this, you need an array.
     </p>
       
     <h2>What is an array?</h2>
@@ -93,7 +106,7 @@
       of <b>elements</b>. Unlike variables, where each value has a
       unique name, with arrays, each value is <em>numbered</em>
       starting at <code>0</code>. The number that you use to reference
-      which item in the list you want is called the <b>index</b>.
+      specific values in the list is called the <b>index</b>.
     </p>
     
     <img src="http://www.introprogramming.info/wp-content/uploads/2013/07/clip_image00213_thumb.png">
@@ -134,6 +147,14 @@ console.log("third element: " + anArrayWithNumbersInIt[2])
 console.log("21st element: " + anArrayWithNumbersInIt[20]) // what happens?</code></pre>
 
     <p>
+      Notice that in JavaScript (like in most programming languages)
+      arrays are <em>zero indexed</em>. This means that the first item
+      in the array is referenced with <code>[0]</code>. What then
+      would the index of the last item be? For example, what be would
+      the index of the last item in an array with 10 values?
+    </p>
+
+    <p>
       To write data to an array, we use the same syntax but include the <code>=</code> assignment operator we learned earlier.
     </p>
     
@@ -152,7 +173,7 @@ anArrayWithNumbersInIt[20] = -21 // What happens here?</code></pre>
     
     <h2>Methods and Properties of Arrays</h2>
     <p>
-      Arrays are a part of a more complex variable type in JavaScript, called <b>objects</b>. We won't go over objects too much here, but it's important to know that objects have methods and properties that can be accessed via the <code>.</code> operator.
+      Arrays are an example of a more complex variable type in JavaScript, called <b>objects</b>. We won't go over objects too much here, but it's important to know that objects have methods and properties that can be accessed via the <code>.</code> operator.
     </p>
 
     <p>
@@ -160,7 +181,12 @@ anArrayWithNumbersInIt[20] = -21 // What happens here?</code></pre>
     </p>
 
     <h3>Array Properties</h3>
-    <p>A property of an object (in this case our array) is a <b>value</b> (just like the other variables we've discussed so far). Arrays only have one property, <b>.length</b>.</p>
+    <p>
+      A property of an object has a <b>value</b> just like the other
+      variables we've discussed so far. Arrays only have one property
+      that we'll be working with: <code>.length</code>, and it's value
+      is a number that tells us the number of values in the array.
+    </p>
 
     <pre><code>var fruits = ["Banana", "Orange", "Apple", "Mango"]
 console.log("The length of fruits is " + fruits.length)  // 4
@@ -173,18 +199,34 @@ console.log("The length of nycTrains is " + nycTrains.length)  // 7
     <h3>Array Methods</h3>
     
     <p>
-      A method of an object (in this case our array) is some <b>code</b> that performs a bunch of operations (similar to our company revenue calculator from the <a href="activity-variables.html">Variables</a> activity). 
+      A method of an object is some <b>code</b> that performs a bunch
+      of operations. We have already worked with some methods,
+      like <code>console.log()</code> or <code>Math.pow()</code>. (Our
+      company revenue calculator from
+      the <a href="activity-variables.html">Variables</a> activity is
+      the type of calculation that could get wrapped up in a method,
+      and executed when we invoked the method.)
     </p>
 
     <p>
-      In JavaScript, you can tell an entity is a method if it comes after an array variable with a <code>.</code> and followed immediately by <code>()</code>. For example: <code>fruits.pop()</code>
+      In JavaScript, you can tell an entity is a method if it comes
+      after an variable name with a <code>.</code> and followed
+      immediately by <code>()</code>. For
+      example: <code>fruits.pop()</code>
     </p>
 
-    <pre><code>// Can you guess what the following method does?
-var fruits = ["Banana", "Orange", "Apple", "Mango"]
+    <pre><code>var fruits = ["Banana", "Orange", "Apple", "Mango"]
+console.log("The length of fruits is " + fruits.length)  // 4
+console.log("Fruits: " + fruits)
+
 fruits.push("Papaya")
-console.log("The length of fruits is " + fruits.length)  // 5
-console.log( fruits ); // what do you expect to see in this array now?
+console.log("The length of fruits is now " + fruits.length)  // 5
+
+var aFruit = fruits.pop()
+console.log( aFruit )
+
+// What do you expect to see in this array now?
+console.log( "Fruits:" + fruits )
 </code></pre>
 
 
