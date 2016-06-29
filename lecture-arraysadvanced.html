@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>AC Workshop - Lecture: Arrays Advanced</title>
+  
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+</head>
+<body>
+<div class="container">
+<div class="container-inner">
+
+  <div class="left-sidebar">
+    <div class="home-anchor">
+      <h3><a href="index.html">Intro to Programming with JavaScript</a></h3>
+    </div>
+    <div class="navigation-links">
+      <div class="navigation-link-item"><a href="activity-logging.html">Activity: Logging</a></div>
+      <div class="navigation-link-item"><a href="lecture-variables.html">Lecture: Variables</a></div>
+      <div class="navigation-link-item"><a href="activity-variables.html">Activity: Variables</a></div>
+      <div class="navigation-link-item"><a href="lecture-conditionals.html">Lecture: Conditionals</a></div>
+      <div class="navigation-link-item"><a href="activity-conditionals.html">Activity: Conditionals</a></div>
+      <div class="navigation-link-item"><a href="lecture-loops.html">Lecture: Loops</a></div>
+      <div class="navigation-link-item"><a href="activity-fizzbuzz.html">Activity: Fizz Buzz</a></div>
+      <div class="navigation-link-item"><a href="assignment-webproposal.html">Assignment: Web App Proposal</a></div>
+      <div class="navigation-link-item"><a href="lecture-arrays.html">Lecture: Arrays</a></div>
+      <div class="navigation-link-item"><a href="activity-arrays.html">Activity: Arrays</a></div>
+      <div class="navigation-link-item"><a href="lecture-arraysadvanced.html">Lecture: Arrays (Advanced)</a></div>
+      <div class="navigation-link-item"><a href="activity-arraysadvanced.html">Activity: Arrays (Advanced)</a></div>
+      <div class="navigation-link-item"><a href="lecture-functions.html">Lecture: Functions</a></div>
+      <div class="navigation-link-item"><a href="activity-functions.html">Activity: Functions</a></div>
+      <div class="navigation-link-item"><a href="practiceproblems.html">Practice Problems</a></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>Lecture: Arrays Advanced</h1>
+
+    <h2>Looping over Arrays</h2>
+
+    <p>
+      Let's return to the example that started off this topic: how
+      could you calculate the average of a very large number of
+      values, or of a dynamic number of values? Using variables
+      like <code>a1</code>, <code>a2</code>, <code>a3</code>, etc
+      won't work because we can't add these up in a loop. But this is
+      where arrays come in!
+    </p>
+
+    <p>
+      So far, we have used hard-coded values for our array
+      indexes. Things like this:
+<pre><code>myArray[0] = 1
+console.log( myArray[7] )
+// or even:
+myArray.length = 42</code></pre>
+    </p>
+
+    <p>
+      But the really powerful thing about arrays is that we can also
+      use <em>variables</em> as our indexes. So for example:
+<pre><code>var array = [ "breakfast", "lunch", "tea", "dinner" ]
+var i = 0
+console.log( array[i] ) // what will this print?
+i = i + 1
+console.log( array[i] ) // what will this print now?
+
+// think about when this assignment happens:
+i = array.length - 1
+ // so this does what you'd expect:
+console.log( array[i] )
+// but if now we add another value:
+array.push("dessert")
+// what is the value of i now?
+console.log( array[i] )</codE></pre>
+    </p>
+
+    <p>
+      This gets exciting when we change the index variable in
+      interesting ways. 
+<pre><code>// We've already seen how to print an array like this:
+console.log( array )
+
+// But here's another way:
+var i = 0
+while ( i < array.length ) {
+  console.log( "Meal #" + i + " is: " + array[i] )
+  i = i + 1
+}
+// step through to make sure you understand what's happening
+
+/* (Can you fix this so that our meals start at 1 and not 0? Hint: use
+parentheses to separate addition from string concatenation) */</code></pre>
+    </p>
+
+    <p>
+      So finally returning to our original example, if we put our list
+      of values in an array rather than in separate variables, then
+      instead of <code>a1</code>, <code>a2</codE>, <code>a3</code>,
+      etc, we can
+      say <code>a[1]</codE>, <code>a[2]</codE>, <code>a[3]</codE>,
+      etc. And that means that we can then use a loop to iterate over
+      the list of values and calculate the average. Let's fill in the
+      blanks together:
+<pre><code>var temperatures = [ 101, 32, 75, -5, 98, 112 ]
+var sum = 0
+var i = 0
+while ( i < ??? ) {
+  sum ???
+  i = i + 1
+}
+var average = ???</code></pre>
+
+	    Now you should be able to add additional values to your
+	    array and the average will automatically be calculated.
+    </p>
+
+  </div>
+
+</div>
+</div>
+</body>
+</html>
